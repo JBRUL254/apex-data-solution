@@ -1,0 +1,84 @@
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DataWaves Solution</title>
+  <meta name="description" content="DataWaves Solution provides affordable data bundles for everyone, including customers with unpaid Okoa Jahazi or overdue balances. Stay connected anytime, anywhere.">
+  <style>
+    body {font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f6f9ff;color:#222;}
+    header {background:#0077cc;color:white;padding:30px;text-align:center;}
+    header h1 {margin:0;font-size:2rem;}
+    header p {margin-top:6px;font-size:1rem;}
+    .container {max-width:900px;margin:30px auto;background:white;padding:24px;border-radius:12px;
+                box-shadow:0 4px 12px rgba(0,0,0,0.05);}
+    h2 {color:#0077cc;margin-bottom:10px;}
+    p {line-height:1.6;}
+    .btn {background:#0077cc;color:white;padding:12px 18px;border:none;border-radius:8px;
+          cursor:pointer;font-weight:600;margin-top:15px;}
+    .btn:hover {background:#005fa3;}
+    .bundle-table {width:100%;border-collapse:collapse;margin-top:15px;}
+    .bundle-table th,.bundle-table td {padding:10px;border-bottom:1px solid #eee;text-align:left;}
+    .bundle-table th {background:#eaf3ff;}
+    .pay-section {background:#eaf3ff;padding:16px;margin-top:20px;border-radius:10px;}
+    footer {text-align:center;margin:30px 0;color:#555;font-size:0.9rem;}
+    footer a {color:#0077cc;text-decoration:none;}
+    .about {margin-top:20px;}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>DataWaves Solution</h1>
+    <p>Ride the Wave of Affordable Data</p>
+  </header>
+
+  <div class="container">
+    <section class="about">
+      <h2>About DataWaves Solution</h2>
+      <p>
+        DataWaves Solution is committed to keeping you connected by offering affordable, flexible, and reliable data bundles.
+        We make it possible for everyone — including those with unpaid Okoa Jahazi or overdue balances — to access the internet 
+        and stay productive. With DataWaves, you can surf, stream, and share without limits.
+      </p>
+    </section>
+
+    <section class="bundles">
+      <h2>Our Data Bundles</h2>
+      <table class="bundle-table">
+        <thead>
+          <tr><th>Bundle</th><th>Price (Ksh)</th><th>Validity</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>250 MB</td><td>20</td><td>24 Hours</td></tr>
+          <tr><td>500 MB</td><td>35</td><td>24 Hours</td></tr>
+          <tr><td>1 GB</td><td>55</td><td>24 Hours</td></tr>
+          <tr><td>2 GB</td><td>100</td><td>48 Hours</td></tr>
+          <tr><td>5 GB</td><td>220</td><td>7 Days</td></tr>
+          <tr><td>10 GB</td><td>420</td><td>30 Days</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="buy">
+      <button class="btn">Buy Data Now</button>
+      <div class="pay-section">
+        <h3>Payment Instructions</h3>
+        <p>
+          <strong>Paybill:</strong> 400200<br>
+          <strong>Account:</strong> 1029079<br>
+          <strong>Amount:</strong> Enter your desired bundle amount (e.g. 55 for 1GB).<br>
+          Once payment is complete, your data will be activated instantly.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div>&copy; 2025 DataWaves Solution — All rights reserved.</div>
+    <div>Tel: <a href="tel:0708290508">0708290508</a> | 
+      <a href="http://www.datawavessolution.com" target="_blank">www.datawavessolution.com</a></div>
+  </footer>
+
+</body>
+</html>
