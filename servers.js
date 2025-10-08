@@ -6,16 +6,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(express.static('public')); // serve index.html and static files
+app.use(express.static('public')); // serve index.html and CSS
 
-// M-PESA credentials - replace with your production keys
 const MPESA_ENV = 'production'; // or 'sandbox'
 const CONSUMER_KEY = 'YOUR_CONSUMER_KEY';
 const CONSUMER_SECRET = 'YOUR_CONSUMER_SECRET';
 const SHORTCODE = 'YOUR_SHORTCODE';
 const PASSKEY = 'YOUR_PASSKEY';
 
-// Get OAuth token from Safaricom
 async function getAccessToken() {
   const auth = Buffer.from(`${CONSUMER_KEY}:${CONSUMER_SECRET}`).toString('base64');
   const url =
@@ -23,20 +21,10 @@ async function getAccessToken() {
       ? 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
       : 'https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
 
-  try {
-    const response = await axios.get(url, {
-      headers: {
-        Authorization: `Basic ${auth}`
-      }
-    });
-    return response.data.access_token;
-  } catch (error) {
-    console.error('Error fetching access token:', error.response.data);
-    throw error;
-  }
+  const response = await axios.get(url, { headers: { Authorization: `Basic ${auth}` } });
+  return response.data.access_token;
 }
 
-// Endpoint to initiate Lipa Na M-PESA STK Push
 app.post('/buy-bundle', async (req, res) => {
   const { phone, amount, bundleName } = req.body;
 
@@ -65,18 +53,14 @@ app.post('/buy-bundle', async (req, res) => {
     };
 
     const response = await axios.post(stkUrl, stkData, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+      headers: { Authorization: `Bearer ${token}` }
     });
 
     res.json(response.data);
   } catch (error) {
-    console.error('STK Push Error:', error.response?.data || error.message);
+    console.error(error.response?.data || error.message);
     res.status(500).json({ error: 'Payment initiation failed' });
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
