@@ -1,7 +1,6 @@
 apex-data-solution/
 │
-├── package.json
-├── server.js
-├── public/
-│   └── index.html
-└── README.md
+├─ server.js
+├─ package.json
+└─ public/
+    └─ index.html
