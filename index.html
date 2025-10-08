@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apex Data Solution - Dashboard</title>
+  <title>Apex Data Solution - Instant Data 24/7</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -73,12 +73,10 @@
       opacity: 0.9;
     }
     
-    .user-info {
+    .slogan {
       text-align: right;
-    }
-    
-    .user-info p {
-      font-size: 0.9rem;
+      font-weight: 600;
+      font-size: 1.1rem;
     }
     
     .notification {
@@ -114,41 +112,20 @@
       box-shadow: var(--shadow);
     }
     
-    .user-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .user-details h2 {
-      color: var(--primary);
-      margin-bottom: 5px;
-    }
-    
-    .user-details p {
-      color: var(--gray);
-      font-size: 0.9rem;
-    }
-    
-    .credit-info {
-      display: flex;
-      gap: 20px;
-    }
-    
-    .credit-box {
+    .greeting-card {
       text-align: center;
-      padding: 10px 15px;
-      background: rgba(108, 99, 255, 0.1);
-      border-radius: 8px;
+      padding: 25px;
     }
     
-    .credit-box h3 {
-      font-size: 1.2rem;
+    .greeting {
+      font-size: 1.8rem;
+      font-weight: 700;
       color: var(--primary);
+      margin-bottom: 10px;
     }
     
-    .credit-box p {
-      font-size: 0.8rem;
+    .tagline {
+      font-size: 1.1rem;
       color: var(--gray);
     }
     
@@ -187,6 +164,22 @@
     .deal-item:hover {
       transform: translateY(-3px);
       border-color: var(--primary);
+    }
+    
+    .deal-item.popular {
+      border-color: var(--accent);
+      position: relative;
+    }
+    
+    .popular-badge {
+      position: absolute;
+      top: -10px;
+      right: 10px;
+      background: var(--accent);
+      color: white;
+      font-size: 0.7rem;
+      padding: 3px 10px;
+      border-radius: 10px;
     }
     
     .deal-info {
@@ -282,67 +275,6 @@
       color: var(--gray);
     }
     
-    .active-subscriptions {
-      margin-top: 20px;
-    }
-    
-    .subscription-card {
-      background: var(--white);
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    }
-    
-    .subscription-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-    
-    .subscription-name {
-      font-weight: 600;
-      color: var(--dark);
-    }
-    
-    .subscription-code {
-      font-size: 0.8rem;
-      color: var(--gray);
-    }
-    
-    .subscription-details {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      color: var(--gray);
-    }
-    
-    .voucher-section {
-      margin-top: 20px;
-    }
-    
-    .voucher-input {
-      display: flex;
-      margin-top: 10px;
-    }
-    
-    .voucher-input input {
-      flex: 1;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px 0 0 8px;
-      font-size: 0.9rem;
-    }
-    
-    .voucher-input button {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 0 15px;
-      border-radius: 0 8px 8px 0;
-      cursor: pointer;
-    }
-    
     .help-section {
       background: rgba(0, 201, 167, 0.1);
       padding: 15px;
@@ -420,17 +352,6 @@
         grid-template-columns: 1fr;
       }
       
-      .user-card {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-      }
-      
-      .credit-info {
-        width: 100%;
-        justify-content: space-between;
-      }
-      
       .deal-item {
         flex-direction: column;
         align-items: flex-start;
@@ -442,6 +363,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+      }
+      
+      .slogan {
+        display: none;
       }
     }
   </style>
@@ -458,9 +383,8 @@
         <p>Affordable Data Bundles</p>
       </div>
     </div>
-    <div class="user-info">
-      <p>Welcome, <strong>JOSIAH</strong></p>
-      <p>Prepaid: 254708290508</p>
+    <div class="slogan">
+      Instant Data 24/7
     </div>
   </header>
 
@@ -470,21 +394,9 @@
 
   <div class="container">
     <div class="main-content">
-      <div class="card user-card">
-        <div class="user-details">
-          <h2>Good Morning, JOSIAH</h2>
-          <p>Prepaid: 254708290508</p>
-        </div>
-        <div class="credit-info">
-          <div class="credit-box">
-            <h3>KES 0.00</h3>
-            <p>Credit (Ksh)</p>
-          </div>
-          <div class="credit-box">
-            <h3>0</h3>
-            <p>Net Points</p>
-          </div>
-        </div>
+      <div class="card greeting-card">
+        <div class="greeting" id="greeting">Good Morning!</div>
+        <div class="tagline">Instant data activation 24/7 with no restrictions</div>
       </div>
 
       <div class="card">
@@ -511,6 +423,18 @@
             <div class="deal-actions">
               <span class="deal-price">Ksh 35</span>
               <button class="btn" onclick="buyBundle(35, '500 MB Data Bundle')"><i class="fas fa-shopping-cart"></i> Pay</button>
+            </div>
+          </div>
+          
+          <div class="deal-item popular">
+            <div class="popular-badge">NEW</div>
+            <div class="deal-info">
+              <div class="deal-name">1 GB Express Bundle</div>
+              <div class="deal-details">Valid for 1 Hour</div>
+            </div>
+            <div class="deal-actions">
+              <span class="deal-price">Ksh 19</span>
+              <button class="btn" onclick="buyBundle(19, '1 GB Express Bundle')"><i class="fas fa-shopping-cart"></i> Pay</button>
             </div>
           </div>
           
@@ -625,6 +549,23 @@
   </footer>
 
   <script>
+    // Dynamic greeting based on time of day
+    function updateGreeting() {
+      const hour = new Date().getHours();
+      const greetingElement = document.getElementById('greeting');
+      
+      if (hour < 12) {
+        greetingElement.textContent = 'Good Morning!';
+      } else if (hour < 18) {
+        greetingElement.textContent = 'Good Afternoon!';
+      } else {
+        greetingElement.textContent = 'Good Evening!';
+      }
+    }
+    
+    // Call the function when page loads
+    updateGreeting();
+    
     function buyBundle(price, bundleName) {
       alert(`You selected: ${bundleName} for Ksh ${price}\n\nPayment Instructions:\n1. Go to M-PESA\n2. Select "Lipa Na M-PESA" > "Pay Bill"\n3. Enter Business No: 400200\n4. Enter Account: 1029079\n5. Enter Amount: ${price}\n\nYour data will be activated after payment.`);
     }
