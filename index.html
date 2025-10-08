@@ -165,83 +165,57 @@
       margin-right: 10px;
     }
     
-    .plans-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    .deals-list {
+      display: flex;
+      flex-direction: column;
       gap: 15px;
       margin-top: 15px;
     }
     
-    .plan-card {
+    .deal-item {
       background: var(--white);
       border-radius: 10px;
       padding: 15px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s ease;
       border: 2px solid transparent;
-      position: relative;
-    }
-    
-    .plan-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary);
-    }
-    
-    .plan-card.popular {
-      border-color: var(--accent);
-    }
-    
-    .popular-badge {
-      position: absolute;
-      top: -10px;
-      right: 10px;
-      background: var(--accent);
-      color: white;
-      font-size: 0.7rem;
-      padding: 3px 10px;
-      border-radius: 10px;
-    }
-    
-    .plan-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
     }
     
-    .plan-name {
+    .deal-item:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+    }
+    
+    .deal-info {
+      flex: 1;
+    }
+    
+    .deal-name {
       font-weight: 600;
       color: var(--dark);
+      font-size: 1.1rem;
     }
     
-    .plan-price {
+    .deal-details {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 5px;
+    }
+    
+    .deal-price {
       font-weight: 700;
       color: var(--primary);
       font-size: 1.2rem;
-    }
-    
-    .plan-details {
-      font-size: 0.85rem;
-      color: var(--gray);
-      margin-bottom: 15px;
-    }
-    
-    .plan-devices {
-      display: flex;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--gray);
-      margin-bottom: 15px;
-    }
-    
-    .plan-devices i {
-      margin-right: 5px;
+      margin-right: 15px;
     }
     
     .btn {
       background: var(--secondary);
       color: var(--white);
-      padding: 10px 15px;
+      padding: 10px 20px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -251,7 +225,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
+      min-width: 100px;
     }
     
     .btn:hover {
@@ -457,8 +431,17 @@
         justify-content: space-between;
       }
       
-      .plans-grid {
-        grid-template-columns: 1fr;
+      .deal-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      
+      .deal-actions {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
     }
   </style>
@@ -508,13 +491,72 @@
         <h2><i class="fas fa-wifi"></i> Data Bundles</h2>
         <p>Select from our range of affordable data bundles</p>
         
-        <div class="plans-grid">
-          <tr><td>250 MB</td><td>20</td><td>24 Hours</td></tr>
-          <tr><td>500 MB</td><td>35</td><td>24 Hours</td></tr>
-          <tr><td>1 GB</td><td>55</td><td>24 Hours</td></tr>
-          <tr><td>2 GB</td><td>100</td><td>48 Hours</td></tr>
-          <tr><td>5 GB</td><td>220</td><td>7 Days</td></tr>
-          <tr><td>10 GB</td><td>420</td><td>30 Days</td></tr>
+        <div class="deals-list">
+          <div class="deal-item">
+            <div class="deal-info">
+              <div class="deal-name">250 MB Data Bundle</div>
+              <div class="deal-details">Valid for 24 Hours</div>
+            </div>
+            <div class="deal-actions">
+              <span class="deal-price">Ksh 20</span>
+              <button class="btn" onclick="buyBundle(20, '250 MB Data Bundle')"><i class="fas fa-shopping-cart"></i> Pay</button>
+            </div>
+          </div>
+          
+          <div class="deal-item">
+            <div class="deal-info">
+              <div class="deal-name">500 MB Data Bundle</div>
+              <div class="deal-details">Valid for 24 Hours</div>
+            </div>
+            <div class="deal-actions">
+              <span class="deal-price">Ksh 35</span>
+              <button class="btn" onclick="buyBundle(35, '500 MB Data Bundle')"><i class="fas fa-shopping-cart"></i> Pay</button>
+            </div>
+          </div>
+          
+          <div class="deal-item">
+            <div class="deal-info">
+              <div class="deal-name">1 GB Data Bundle</div>
+              <div class="deal-details">Valid for 24 Hours</div>
+            </div>
+            <div class="deal-actions">
+              <span class="deal-price">Ksh 55</span>
+              <button class="btn" onclick="buyBundle(55, '1 GB Data Bundle')"><i class="fas fa-shopping-cart"></i> Pay</button>
+            </div>
+          </div>
+          
+          <div class="deal-item">
+            <div class="deal-info">
+              <div class="deal-name">2 GB Data Bundle</div>
+              <div class="deal-details">Valid for 48 Hours</div>
+            </div>
+            <div class="deal-actions">
+              <span class="deal-price">Ksh 100</span>
+              <button class="btn" onclick="buyBundle(100, '2 GB Data Bundle')"><i class="fas fa-shopping-cart"></i> Pay</button>
+            </div>
+          </div>
+          
+          <div class="deal-item">
+            <div class="deal-info">
+              <div class="deal-name">5 GB Data Bundle</div>
+              <div class="deal-details">Valid for 7 Days</div>
+            </div>
+            <div class="deal-actions">
+              <span class="deal-price">Ksh 220</span>
+              <button class="btn" onclick="buyBundle(220, '5 GB Data Bundle')"><i class="fas fa-shopping-cart"></i> Pay</button>
+            </div>
+          </div>
+          
+          <div class="deal-item">
+            <div class="deal-info">
+              <div class="deal-name">10 GB Data Bundle</div>
+              <div class="deal-details">Valid for 30 Days</div>
+            </div>
+            <div class="deal-actions">
+              <span class="deal-price">Ksh 420</span>
+              <button class="btn" onclick="buyBundle(420, '10 GB Data Bundle')"><i class="fas fa-shopping-cart"></i> Pay</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -583,23 +625,9 @@
   </footer>
 
   <script>
-    // This will be used for M-PESA integration later
-    document.addEventListener('DOMContentLoaded', function() {
-      // Add event listeners to all Buy buttons
-      const buyButtons = document.querySelectorAll('.btn');
-      buyButtons.forEach(button => {
-        if (button.textContent.includes('Buy Now')) {
-          button.addEventListener('click', function() {
-            const planCard = this.closest('.plan-card');
-            const planName = planCard.querySelector('.plan-name').textContent;
-            const planPrice = planCard.querySelector('.plan-price').textContent;
-            
-            // This will be replaced with actual M-PESA integration
-            alert(`You selected: ${planName} for ${planPrice}\n\nM-PESA integration will be implemented here.`);
-          });
-        }
-      });
-    });
+    function buyBundle(price, bundleName) {
+      alert(`You selected: ${bundleName} for Ksh ${price}\n\nPayment Instructions:\n1. Go to M-PESA\n2. Select "Lipa Na M-PESA" > "Pay Bill"\n3. Enter Business No: 400200\n4. Enter Account: 1029079\n5. Enter Amount: ${price}\n\nYour data will be activated after payment.`);
+    }
   </script>
 </body>
 </html>
