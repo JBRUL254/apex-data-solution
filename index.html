@@ -567,9 +567,25 @@
     // Call the function when page loads
     updateGreeting();
     
-    function buyBundle(price, bundleName) {
-      alert(`You selected: ${bundleName} for Ksh ${price}\n\nPayment Instructions:\n1. Go to M-PESA\n2. Select "Lipa Na M-PESA" > "Pay Bill"\n3. Enter Business No: 400200\n4. Enter Account: 1029079\n5. Enter Amount: ${price}\n\nYour data will be activated after payment.`);
+  async function buyBundle(price, bundleName) {
+  const phone = prompt("Enter your phone number (format 2547XXXXXXXX):");
+  if (!phone) return;
+
+  try {
+    const res = await fetch('/stk/push', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone, amount: price, bundleName }),
+    });
+    const data = await res.json();
+    if (data.success) {
+      alert(`STK Push sent successfully for ${bundleName}. Please check your phone to complete payment.`);
+    } else {
+      alert(`Error: ${data.error}`);
     }
-  </script>
-</body>
-</html>
+  } catch (err) {
+    alert('Error initiating payment: ' + err.message);
+  }
+}
+ 
+
